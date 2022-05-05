@@ -1,6 +1,12 @@
 .movies {
-  margin: 16px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.movies-container {
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  align-items: center;
 }
