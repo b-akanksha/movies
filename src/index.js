@@ -3,12 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { HashRouter } from "react-router-dom";
+import { StateProvider } from "./context/StateProvider";
+import { initialState, reducer } from "./context/reducer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
+    <StateProvider initialState={initialState} reducer={reducer}>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </StateProvider>
   </React.StrictMode>
 );
