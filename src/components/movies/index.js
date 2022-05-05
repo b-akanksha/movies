@@ -6,16 +6,13 @@ import "./movies.css";
 const Movies = () => {
   React.useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   const [{ loading, data }, dispatch] = useStateValue();
 
   const fetchData = () => {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz";
-
-    const keyword = alphabet[Math.floor(Math.random() * alphabet.length)];
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_APIKEY}&language=en-US&sort_by=popularity.desc&page=1&with_keywords=${keyword}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_APIKEY}&language=en-US&query=avenger&page=1&include_adult=false`
     )
       .then((response) => response.json())
       .then((json) => {

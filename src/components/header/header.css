@@ -56,7 +56,7 @@ header__logo .header__search {
 }
 
 .header__searchfield {
-  width: 80%;
+  width: 78%;
   margin: 0 5px;
   background-color: transparent;
   color: var(--silverSand);
@@ -66,4 +66,11 @@ header__logo .header__search {
   border-bottom: 1px solid var(--silverSand);
   padding: 8px;
   border-radius: 8px;
+}
+
+.header__button {
+  border: 1px solid transparent;
+  background-color: transparent;
+  cursor: pointer;
+  color: azure;
 }

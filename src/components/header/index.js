@@ -21,7 +21,7 @@ export const Header = () => {
 
   const fetchData = (keyword) => {
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_APIKEY}&language=en-US&sort_by=popularity.desc&page=1&with_keywords=${keyword}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_APIKEY}&language=en-US&query=${keyword}&page=1&include_adult=false`
     )
       .then((response) => response.json())
       .then((json) => {
@@ -53,7 +53,7 @@ export const Header = () => {
             onSubmit={handleSubmit}
             onChange={handleChange}
           />
-          <button type="submit">
+          <button type="submit" className="header__button">
             <SearchOutlined />
           </button>
         </form>
