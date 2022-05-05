@@ -1,10 +1,10 @@
-.movies {
+.favs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.movies-container {
+.fav-container {
   display: flex;
   flex-direction: column;
   margin: 16px;

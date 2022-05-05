@@ -15,13 +15,12 @@ export const reducer = (state, action) => {
     case "GET_DATA":
       return { ...state, data: [...action.payload] };
     case "REMOVE_FROM_FAV": {
-      let tempArray = state.basket.filter(
-        (i) => i.title !== action.payload.title
-      );
+      let tempArray = state.fav.filter((i) => i.id !== action.payload.id);
       return { ...state, fav: [...tempArray] };
     }
     case "ADD_TO_FAV": {
-      return { ...state, fav: [...state.fav, action.payload] };
+      let tempArray = [...state.fav, action.payload];
+      return { ...state, fav: tempArray };
     }
     case "ERROR_OCCURED":
       return { ...state, error: { open: true, message: action.payload } };
