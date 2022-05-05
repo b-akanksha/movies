@@ -27,9 +27,13 @@ const Movies = () => {
       <h2>{loading ? "Loading.." : "What to watch"}</h2>
       <div className="movies">
         {loading && <h1>Loading..</h1>}
-        {data &&
-          data.length > 0 &&
-          data?.map((item) => <FavCard key={`${item.id}`} item={item} />)}
+        {data && data.length > 0 ? (
+          data?.map((item) => (
+            <FavCard key={`${item.id}`} item={item} type="movies" />
+          ))
+        ) : (
+          <p>Nothing to display</p>
+        )}
       </div>
     </div>
   );

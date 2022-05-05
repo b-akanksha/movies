@@ -15,6 +15,7 @@
 .card {
   --card-width: calc(var(--width) / 1);
   --card-height: calc(var(--height) / 4);
+  background: rgba(255, 255, 255, 0.3);
   --blur-amount: 50px;
   width: var(--card-width);
   box-shadow: 0 0 calc(var(--card-width) / 6) #ffffff44;

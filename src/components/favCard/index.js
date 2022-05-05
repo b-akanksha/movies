@@ -1,8 +1,18 @@
 import React from "react";
-import { PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import "./card.css";
+import { useStateValue } from "../../context/StateProvider";
 
-const FavCard = ({ item }) => {
+const FavCard = ({ item, type }) => {
+  const [state, dispatch] = useStateValue();
+
+  const addToFav = (movie) => {
+    console.log(movie);
+    dispatch({ type: "ADD_TO_FAV", payload: movie });
+  };
+  const removeFromFav = (movie) =>
+    dispatch({ type: "REMOVE_FROM_FAV", payload: movie });
+
   return (
     <section
       className="blur-card"
@@ -15,10 +25,20 @@ const FavCard = ({ item }) => {
       }}
     >
       <div className="card">
-        <p>{item?.original_title}</p>
-        <button className="add-button">
-          <PlusOutlined />
-        </button>
+        <p>
+          <b>
+            {item?.original_title} | {item?.vote_average}
+          </b>
+        </p>
+        {type === "movies" ? (
+          <button className="add-button" onClick={() => addToFav(item)}>
+            <PlusOutlined />
+          </button>
+        ) : (
+          <button className="add-button" onClick={() => removeFromFav(item)}>
+            <MinusOutlined />
+          </button>
+        )}
       </div>
     </section>
   );
