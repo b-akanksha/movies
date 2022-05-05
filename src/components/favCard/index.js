@@ -5,7 +5,7 @@ import "./card.css";
 const FavCard = ({ item }) => {
   return (
     <section
-      class="blur-card"
+      className="blur-card"
       style={{
         background:
           item &&
@@ -14,7 +14,7 @@ const FavCard = ({ item }) => {
         backgroundSize: "cover",
       }}
     >
-      <div class="card">
+      <div className="card">
         <p>{item?.original_title}</p>
         <button className="add-button">
           <PlusOutlined />
